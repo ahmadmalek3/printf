@@ -9,9 +9,9 @@
 int _printf(const char *format, ...)
 {
 	int p_chara = 0;
-	va_list a_rgs;
+	va_list o_rgs;
 
-	va_start(a_rgs, format);
+	va_start(o_rgs, format);
 
 	if (format == NULL)
 	return (-1);
@@ -29,12 +29,12 @@ int _printf(const char *format, ...)
 			{	write(1, format, 1);
 				p_chara++; }
 			else if (*format == 'c')
-			{	char ch = (char) va_arg(a_rgs, int);
+			{	char ch = (char) va_arg(o_rgs, int);
 
 				write(1, &ch, 1);
 				p_chara++; }
 			else if (*format == 's')
-			{	char *star = va_arg(a_rgs, char*);
+			{	char *star = va_arg(o_rgs, char*);
 				int len = strlen(star);
 
 				write(1, star, len);
@@ -42,6 +42,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(a_rgs);
+	va_end(o_rgs);
 	return (p_chara);
 }
