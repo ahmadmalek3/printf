@@ -11,5 +11,6 @@ int _print_integer(int n);
 int print_chara(char c);
 int print_int(va_list args);
 int print_dec(va_list args);
+int print_bin(va_list valy);
 
 #endif /* MAIN_H */
