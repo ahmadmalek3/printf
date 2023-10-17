@@ -8,10 +8,10 @@
 
 int _printf(const char *format, ...)
 {
-	int pointerChar = 0;
-	va_list p_rgs;
+	int p_chara = 0;
+	va_list a_rgs;
 
-	va_start(p_rgs, format);
+	va_start(a_rgs, format);
 
 	if (format == NULL)
 	return (-1);
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{	write(1, format, 1);
-			pointerChar++; }
+			p_chara++; }
 		else
 		{
 			format++;
@@ -27,21 +27,21 @@ int _printf(const char *format, ...)
 			break;
 			if (*format == '%')
 			{	write(1, format, 1);
-				pointerChar++; }
+				p_chara++; }
 			else if (*format == 'c')
-			{	char ch = (char) va_arg(p_rgs, int);
+			{	char ch = (char) va_arg(a_rgs, int);
 
 				write(1, &ch, 1);
-				pointerCahr++; }
+				p_chara++; }
 			else if (*format == 's')
-			{	char *star = va_arg(p_rgs, char*);
+			{	char *star = va_arg(a_rgs, char*);
 				int len = strlen(star);
 
 				write(1, star, len);
-				pointerChar += len; }
+				p_chara += len; }
 		}
 		format++;
 	}
-	va_end(p_rgs);
-	return (pointerChar);
+	va_end(a_rgs);
+	return (p_chara);
 }
